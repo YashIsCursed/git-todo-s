@@ -15,12 +15,12 @@ const sidebarItems = [
   },
   {
     title: 'Repositories',
-    href: '/dashboard/repositories',
+    href: '/dashboard/repos',
     icon: FolderGit2,
   },
   {
     title: 'Tasks',
-    href: '/dashboard/tasks',
+    href: '/dashboard/all-tasks',
     icon: CheckSquare,
   },
   {
