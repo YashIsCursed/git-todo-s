@@ -2,6 +2,7 @@ import { createClient } from "@/lib/supabase/server";
 import { getRepoById, getRepoTree } from "@/lib/gitdata/functions";
 import RepoManager from "@/components/dashboard/repo-manager";
 import { redirect } from "next/navigation";
+import { ensureRepository, getRepoTasks } from "@/lib/db/actions";
 
 export default async function RepoDetailsPage({
   params,
@@ -28,7 +29,7 @@ export default async function RepoDetailsPage({
     );
   }
 
-  // Fetch Repo Details
+  // Fetch Repo Details from GitHub
   let repo;
   try {
     repo = await getRepoById(token, id);
@@ -42,6 +43,18 @@ export default async function RepoDetailsPage({
         </p>
       </div>
     );
+  }
+
+  // Sync with internal DB
+  let dbRepo;
+  let tasks = [];
+  try {
+    dbRepo = await ensureRepository(repo);
+    tasks = await getRepoTasks(dbRepo.id);
+  } catch (e) {
+    console.error("Failed to sync repo or fetch tasks", e);
+    // Continue without DB features if failing? OR Block?
+    // Let's allow viewing files even if DB fails
   }
 
   // Fetch File Tree
@@ -66,5 +79,12 @@ export default async function RepoDetailsPage({
 
   const tree = treeRequestData.tree; // The API returns object { sha, url, tree: [...] }
 
-  return <RepoManager repo={repo} tree={tree} />;
+  return (
+    <RepoManager
+      repo={repo}
+      dbRepoId={dbRepo?.id}
+      tree={tree}
+      initialTasks={tasks}
+    />
+  );
 }
