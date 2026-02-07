@@ -1,4 +1,3 @@
-var set;
 export async function getUserRepos(AuthorizationTOKEN: string) {
   const response = await fetch("https://api.github.com/user/repos", {
     headers: {
