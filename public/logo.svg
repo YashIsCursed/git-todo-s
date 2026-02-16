@@ -1,0 +1,19 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <desc>Organic GitHub Manager Logo</desc>
+  
+  <!-- Background: Soft Cream with subtle gradient hint (simulated with solid for SVG compatibility) -->
+  <rect x="32" y="32" width="448" height="448" rx="128" fill="#FEFCF6" stroke="#3D5A3D" stroke-width="16"/>
+  
+  <!-- Leaf Stem / Checkmark base -->
+  <path d="M160 280 L230 350" stroke="#3D5A3D" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Main Leaf Shape (The "Long Stroke" of the checkmark) -->
+  <path d="M230 350 C230 350 280 200 380 120 C380 120 360 250 230 350 Z" fill="#9CAF88" stroke="#3D5A3D" stroke-width="16" stroke-linejoin="round"/>
+  
+  <!-- Leaf Vein -->
+  <path d="M230 350 C250 300 290 220 380 120" stroke="#3D5A3D" stroke-width="12" stroke-linecap="round"/>
+  
+  <!-- Second smaller leaf (making it a sprout) -->
+  <path d="M230 350 C230 350 180 320 160 240 C160 240 210 260 230 350 Z" fill="#C67B5C" stroke="#3D5A3D" stroke-width="12" stroke-linejoin="round" opacity="0.9"/>
+  
+</svg>

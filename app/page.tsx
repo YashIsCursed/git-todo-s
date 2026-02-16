@@ -87,9 +87,11 @@ export default function Home() {
 
       {/* Decorative elements */}
       <div className="fixed top-8 left-8 flex items-center gap-3 z-50">
-        <div className="w-10 h-10 rounded-xl flex items-center justify-center">
-          <span className="text-white text-lg">🌿</span>
-        </div>
+        <img
+          src="/logo.svg"
+          alt="GitHub Manager Logo"
+          className="w-10 h-10 rounded-xl shadow-sm transition-transform hover:scale-105"
+        />
         <span className="display-font text-lg text-[var(--organic-forest)]">
           GitHub Manager
         </span>
